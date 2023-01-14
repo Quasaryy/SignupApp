@@ -24,8 +24,26 @@ class LoginViewController: UIViewController {
         passwordTF.isSecureTextEntry = true
         passwordTF.textContentType = .oneTimeCode
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let tabbarVC = segue.destination as? UITabBarController
+        let dashboardVC = tabbarVC?.viewControllers?.first as? DashboardViewController
+        dashboardVC?.user = usernameTF.text
+    }
 
     @IBAction func loginTapped() {
+        guard !usernameTF.text!.isEmpty && !passwordTF.text!.isEmpty else {
+            showAlert(title: "Oops!", message: "Please enter username and password 😀")
+            passwordTF.text = nil
+            return
+        }
+        
+        guard checkLoginAndPassword() else {
+            showAlert(title: "Invalid login or password", message: "Please enter correct login and password")
+            passwordTF.text = nil
+            return
+        }
+        
         performSegue(withIdentifier: "goToDashboardFromLogin", sender: nil)
     }
     
@@ -35,7 +53,8 @@ class LoginViewController: UIViewController {
     
     // MARK: Returning to this VC from previous VC
     @IBAction func unwindSegueToFirstVC(segue: UIStoryboardSegue) {
-        
+        usernameTF.text = nil
+        passwordTF.text = nil
     }
 }
 
@@ -55,3 +74,26 @@ extension LoginViewController: UITextFieldDelegate {
     }
 }
 
+// MARK: Alert window
+extension LoginViewController {
+    func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let buttonOK = UIAlertAction(title: "OK", style: .default)
+        alert.addAction(buttonOK)
+        present(alert, animated: true)
+    }
+}
+
+// MARK: Checking login and password to login
+extension LoginViewController {
+    func checkLoginAndPassword() -> Bool {
+        for user in usersArray {
+            if user.login == usernameTF.text {
+                if user.password == passwordTF.text {
+                    return true
+                }
+            }
+        }
+        return false
+    }
+}

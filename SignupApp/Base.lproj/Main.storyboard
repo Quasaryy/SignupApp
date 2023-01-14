@@ -176,20 +176,56 @@
             </objects>
             <point key="canvasLocation" x="918" y="-752"/>
         </scene>
-        <!--Item-->
+        <!--Dashboard-->
         <scene sceneID="b9g-GO-lHC">
             <objects>
                 <viewController id="v8T-7T-Y20" customClass="DashboardViewController" customModule="SignupApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hSB-XR-9nj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weclome, " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="zyl-hp-5Wo">
+                                <rect key="frame" x="121" y="115" width="133" height="36"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="👋" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O1f-TA-j8X">
+                                <rect key="frame" x="150" y="201" width="75" height="84"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="70"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0zg-VP-GEF">
+                                <rect key="frame" x="156.5" y="462" width="62" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <segue destination="U0k-00-mOx" kind="unwind" unwindAction="unwindSegueToFirstVCWithSegue:" id="D8E-uo-a1a"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="qdk-Kx-xbs"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemTealColor"/>
+                        <constraints>
+                            <constraint firstItem="O1f-TA-j8X" firstAttribute="centerX" secondItem="hSB-XR-9nj" secondAttribute="centerX" id="0YP-mN-J3N"/>
+                            <constraint firstItem="zyl-hp-5Wo" firstAttribute="centerX" secondItem="hSB-XR-9nj" secondAttribute="centerX" id="J8h-rq-xge"/>
+                            <constraint firstItem="zyl-hp-5Wo" firstAttribute="top" secondItem="qdk-Kx-xbs" secondAttribute="top" constant="115" id="ZV7-5j-yre"/>
+                            <constraint firstItem="O1f-TA-j8X" firstAttribute="top" secondItem="zyl-hp-5Wo" secondAttribute="bottom" constant="50" id="gaG-Z6-hdA"/>
+                            <constraint firstItem="qdk-Kx-xbs" firstAttribute="bottom" secondItem="0zg-VP-GEF" secondAttribute="bottom" constant="120" id="j8n-1s-BO1"/>
+                            <constraint firstItem="0zg-VP-GEF" firstAttribute="centerX" secondItem="hSB-XR-9nj" secondAttribute="centerX" id="wpD-II-q3c"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="NJk-Tn-vyv"/>
+                    <tabBarItem key="tabBarItem" title="Dashboard" image="homekit" catalog="system" id="NJk-Tn-vyv"/>
                     <navigationItem key="navigationItem" id="QjZ-Ee-HR1"/>
+                    <connections>
+                        <outlet property="logoutButton" destination="0zg-VP-GEF" id="zbI-CX-sEq"/>
+                        <outlet property="welcomeUserLabel" destination="zyl-hp-5Wo" id="9B3-x4-BRd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bqa-D6-I91" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="U0k-00-mOx" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1700" y="3"/>
         </scene>
@@ -199,8 +235,10 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="ABE-vy-j82" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Xli-Nw-vZJ">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="v8T-7T-Y20" kind="relationship" relationship="viewControllers" id="gqE-DQ-7d8"/>
@@ -212,14 +250,15 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="nq5-kR-s0W"/>
+        <segue reference="YeO-iJ-c8p"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <image name="homekit" catalog="system" width="128" height="104"/>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -8,11 +8,28 @@
 import UIKit
 
 class DashboardViewController: UIViewController {
-
+    
+    var user: String!
+    
+    @IBOutlet var welcomeUserLabel: UILabel!
+    @IBOutlet var logoutButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        addGradient()
+        logoutButton.setTitleColor(.white, for: .normal)
+        welcomeUserLabel.text! += user + "!"
     }
 
+}
+
+// MARK: Set backgound color
+extension DashboardViewController {
+    func addGradient() {
+        let gradientlayer = CAGradientLayer()
+        gradientlayer.frame = view.bounds
+        gradientlayer.colors = [UIColor.systemTeal.cgColor, UIColor.systemIndigo.cgColor]
+        view.layer.insertSublayer(gradientlayer, at: 0)
+    }
 }

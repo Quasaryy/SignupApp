@@ -37,7 +37,11 @@ class SignupViewController: UIViewController {
             passwordTF.text = nil
             return
         }
-        usersArray.append(Users(login: "\(usernameTF.text!)", password: "\(passwordTF.text!)"))
+        if let _ = usersArray[usernameTF.text!] {
+            showAlert(title: "Username is taken", message: "Please enter another username")
+            return
+        }
+        usersArray[usernameTF.text!] = Details(password: passwordTF.text)
         performSegue(withIdentifier: "goToDashboardFromSignup", sender: nil)
     }
     

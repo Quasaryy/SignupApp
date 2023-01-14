@@ -5,13 +5,8 @@
 //  Created by Yury on 14.01.23.
 //
 
-struct Users {
-    var login: String!
-    var password: String!
-    var details: Details!
-}
-
 struct Details {
+    var password: String!
     var fName: String!
     var lName: String!
     var phone: String!
@@ -19,4 +14,4 @@ struct Details {
     var car: String!
 }
 
-var usersArray: [Users] = [Users(login: "user", password: "password", details: Details(fName: "John", lName: "Appleseed", phone: "123456789", address: "One Apple Park Way"))]
+var usersArray: [String: Details] = ["user": Details(password: "password", fName: "John", lName: "Appleseed", phone: "123456789", address: "One Apple Park Way")]

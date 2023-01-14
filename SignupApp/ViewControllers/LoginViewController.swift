@@ -87,11 +87,9 @@ extension LoginViewController {
 // MARK: Checking login and password to login
 extension LoginViewController {
     func checkLoginAndPassword() -> Bool {
-        for user in usersArray {
-            if user.login == usernameTF.text {
-                if user.password == passwordTF.text {
-                    return true
-                }
+        if let user = usersArray[usernameTF.text!] {
+            if user.password == passwordTF.text {
+                return true
             }
         }
         return false

@@ -13,6 +13,8 @@
 		D26D567429720AF300D12AF4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D26D567229720AF300D12AF4 /* Main.storyboard */; };
 		D26D567629720AF300D12AF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D26D567529720AF300D12AF4 /* Assets.xcassets */; };
 		D26D567929720AF300D12AF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D26D567729720AF300D12AF4 /* LaunchScreen.storyboard */; };
+		D26D56A22972BBE800D12AF4 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26D56A12972BBE800D12AF4 /* SignupViewController.swift */; };
+		D26D56A42972D87E00D12AF4 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26D56A32972D87E00D12AF4 /* DashboardViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		D26D567529720AF300D12AF4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D26D567829720AF300D12AF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D26D567A29720AF300D12AF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D26D56A12972BBE800D12AF4 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		D26D56A32972D87E00D12AF4 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +75,8 @@
 			isa = PBXGroup;
 			children = (
 				D26D567029720AF300D12AF4 /* LoginViewController.swift */,
+				D26D56A12972BBE800D12AF4 /* SignupViewController.swift */,
+				D26D56A32972D87E00D12AF4 /* DashboardViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -148,6 +154,8 @@
 			files = (
 				D26D567129720AF300D12AF4 /* LoginViewController.swift in Sources */,
 				D26D566D29720AF300D12AF4 /* AppDelegate.swift in Sources */,
+				D26D56A42972D87E00D12AF4 /* DashboardViewController.swift in Sources */,
+				D26D56A22972BBE800D12AF4 /* SignupViewController.swift in Sources */,
 				D26D566F29720AF300D12AF4 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

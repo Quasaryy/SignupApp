@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  SignupViewController.swift
 //  SignupApp
 //
 //  Created by Yury on 14.01.23.
@@ -7,40 +7,32 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class SignupViewController: UIViewController {
 
-    @IBOutlet var passwordTF: UITextField!
     @IBOutlet var usernameTF: UITextField!
+    @IBOutlet var passwordTF: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // MARK: Settings for textfields
+
+        // MARK: Text fields setiings
         usernameTF.clearButtonMode = .whileEditing
-        usernameTF.placeholder = "Enter username"
+        usernameTF.placeholder = "Create username"
         usernameTF.autocorrectionType = .no
         passwordTF.clearButtonMode = .whileEditing
-        passwordTF.placeholder = "Enter password"
+        passwordTF.placeholder = "Create password"
         passwordTF.isSecureTextEntry = true
         passwordTF.textContentType = .oneTimeCode
     }
-
-    @IBAction func loginTapped() {
-        performSegue(withIdentifier: "goToDashboardFromLogin", sender: nil)
-    }
     
     @IBAction func signupTapped() {
-        performSegue(withIdentifier: "goToSignup", sender: nil)
+        performSegue(withIdentifier: "goToDashboardFromSignup", sender: nil)
     }
     
-    // MARK: Returning to this VC from previous VC
-    @IBAction func unwindSegueToFirstVC(segue: UIStoryboardSegue) {
-        
-    }
 }
 
 // MARK: Settings for keyboard
-extension LoginViewController: UITextFieldDelegate {
+extension SignupViewController: UITextFieldDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
@@ -49,9 +41,8 @@ extension LoginViewController: UITextFieldDelegate {
         if textField == usernameTF {
             passwordTF.becomeFirstResponder()
         } else {
-            loginTapped()
+            signupTapped()
         }
         return true
     }
 }
-

@@ -25,19 +25,19 @@ class EditDetailsViewController: UIViewController {
         addGradient()
         
         countryTF.clearButtonMode = .whileEditing
-        countryTF.placeholder = "Your country"
+        countryTF.placeholder = "\(usersArray[user]?.country ?? "Your country")"
         countryTF.backgroundColor = .systemMint
         cityTF.clearButtonMode = .whileEditing
-        cityTF.placeholder = "Your city"
+        cityTF.placeholder = "\(usersArray[user]?.city ?? "Your city")"
         cityTF.backgroundColor = .systemMint
         phoneTF.clearButtonMode = .whileEditing
-        phoneTF.placeholder = "Your phone number"
+        phoneTF.placeholder = "\(usersArray[user]?.phone ?? "Your phone number")"
         phoneTF.backgroundColor = .systemMint
         lastNameTF.clearButtonMode = .whileEditing
-        lastNameTF.placeholder = "Your surname name"
+        lastNameTF.placeholder = "\(usersArray[user]?.lName ?? "Your surnamename")"
         lastNameTF.backgroundColor = .systemMint
         firstNameTF.clearButtonMode = .whileEditing
-        firstNameTF.placeholder = "Your name"
+        firstNameTF.placeholder = "\(usersArray[user]?.fName ?? "Your name")"
         firstNameTF.backgroundColor = .systemMint
         
         cancelButton.setTitleColor(.white, for: .normal)

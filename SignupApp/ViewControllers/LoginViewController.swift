@@ -61,7 +61,7 @@ class LoginViewController: UIViewController {
     }
     
     // MARK: Returning to this VC from previous VC
-    @IBAction func unwindSegueToFirstVC(segue: UIStoryboardSegue) {
+    @IBAction func unwindSegueToLoginVC(segue: UIStoryboardSegue) {
         usernameTF.text = nil
         passwordTF.text = nil
     }

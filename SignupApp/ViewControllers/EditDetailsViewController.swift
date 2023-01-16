@@ -17,9 +17,12 @@ class EditDetailsViewController: UIViewController {
     @IBOutlet var lastNameTF: UITextField!
     @IBOutlet var firstNameTF: UITextField!
     @IBOutlet var saveButton: UIButton!
+    @IBOutlet var cancelButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        addGradient()
         
         countryTF.clearButtonMode = .whileEditing
         countryTF.placeholder = "Your country"
@@ -36,6 +39,8 @@ class EditDetailsViewController: UIViewController {
         firstNameTF.clearButtonMode = .whileEditing
         firstNameTF.placeholder = "Your name"
         firstNameTF.backgroundColor = .systemMint
+        
+        cancelButton.setTitleColor(.white, for: .normal)
         
         saveButton.setTitleColor(.white, for: .normal)
         
@@ -57,5 +62,14 @@ class EditDetailsViewController: UIViewController {
         if !phoneTF.text!.isEmpty { usersArray[user]?.phone = phoneTF.text! }
         if !cityTF.text!.isEmpty { usersArray[user]?.city = cityTF.text! }
         if !countryTF.text!.isEmpty { usersArray[user]?.country = countryTF.text! }
+    }
+}
+
+extension EditDetailsViewController {
+    func addGradient() {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = view.bounds
+        gradientLayer.colors = [UIColor.systemTeal.cgColor, UIColor.systemIndigo.cgColor]
+        view.layer.insertSublayer(gradientLayer, at: 0)
     }
 }

@@ -150,7 +150,7 @@
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Back"/>
                                         <connections>
-                                            <segue destination="6Wv-e3-Zcl" kind="unwind" unwindAction="unwindSegueToFirstVCWithSegue:" id="Cfy-Ag-mBQ"/>
+                                            <segue destination="6Wv-e3-Zcl" kind="unwind" unwindAction="unwindSegueToLoginVCWithSegue:" id="0KT-CK-mLr"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -202,7 +202,7 @@
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Logout"/>
                                 <connections>
-                                    <segue destination="U0k-00-mOx" kind="unwind" unwindAction="unwindSegueToFirstVCWithSegue:" id="D8E-uo-a1a"/>
+                                    <segue destination="U0k-00-mOx" kind="unwind" unwindAction="unwindSegueToLoginVCWithSegue:" id="Quv-th-g7e"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -320,7 +320,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="IMn-eO-3jp" kind="presentation" id="eo5-5d-X2F"/>
+                                    <segue destination="IMn-eO-3jp" kind="show" id="eo5-5d-X2F"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="iZu-1e-IAB">
@@ -359,16 +359,16 @@
         <!--Edit Details View Controller-->
         <scene sceneID="ABj-bF-6JN">
             <objects>
-                <viewController id="IMn-eO-3jp" customClass="EditDetailsViewController" customModule="SignupApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="IMn-eO-3jp" customClass="EditDetailsViewController" customModule="SignupApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CWP-2d-z9q">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Py1-5I-OrT">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="SBL-HT-8Id">
-                                        <rect key="frame" x="35" y="170" width="305" height="296"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="SBL-HT-8Id">
+                                        <rect key="frame" x="35" y="170" width="305" height="286"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="hR9-lO-ju2">
                                                 <rect key="frame" x="0.0" y="0.0" width="305" height="230"/>
@@ -464,7 +464,7 @@
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b3O-gG-MeT">
-                                                <rect key="frame" x="0.0" y="260" width="305" height="36"/>
+                                                <rect key="frame" x="0.0" y="250" width="305" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="Save"/>
@@ -479,12 +479,24 @@
                                             <constraint firstItem="hR9-lO-ju2" firstAttribute="centerX" secondItem="SBL-HT-8Id" secondAttribute="centerX" id="cFN-xN-Dfj"/>
                                         </constraints>
                                     </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pTS-xm-fyI">
+                                        <rect key="frame" x="163.5" y="466" width="48" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Cancel"/>
+                                        <connections>
+                                            <action selector="saveTapped" destination="IMn-eO-3jp" eventType="touchUpInside" id="qlr-vv-a6N"/>
+                                            <segue destination="nLV-Gl-l1p" kind="unwind" unwindAction="unwindSegueToDetailsVCWithSegue:" id="ydB-9h-Q2h"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="SBL-HT-8Id" firstAttribute="leading" secondItem="ANt-CX-plx" secondAttribute="leading" constant="35" id="1kt-eO-u45"/>
+                                    <constraint firstItem="pTS-xm-fyI" firstAttribute="top" secondItem="SBL-HT-8Id" secondAttribute="bottom" constant="10" id="Roo-Gp-0SW"/>
                                     <constraint firstItem="ANt-CX-plx" firstAttribute="trailing" secondItem="SBL-HT-8Id" secondAttribute="trailing" constant="35" id="TWA-fS-Elf"/>
                                     <constraint firstItem="SBL-HT-8Id" firstAttribute="top" secondItem="Py1-5I-OrT" secondAttribute="top" constant="170" id="WV2-Xh-gzB"/>
-                                    <constraint firstItem="ANt-CX-plx" firstAttribute="bottom" secondItem="SBL-HT-8Id" secondAttribute="bottom" constant="300" id="YLE-g0-iHB"/>
+                                    <constraint firstItem="ANt-CX-plx" firstAttribute="bottom" secondItem="SBL-HT-8Id" secondAttribute="bottom" constant="320" id="YLE-g0-iHB"/>
+                                    <constraint firstItem="pTS-xm-fyI" firstAttribute="centerX" secondItem="Py1-5I-OrT" secondAttribute="centerX" id="bdS-4E-T7R"/>
                                     <constraint firstItem="SBL-HT-8Id" firstAttribute="centerX" secondItem="Py1-5I-OrT" secondAttribute="centerX" id="hBk-9I-8mq"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="ANt-CX-plx"/>
@@ -502,6 +514,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="zME-cs-CE8"/>
                     <connections>
+                        <outlet property="cancelButton" destination="pTS-xm-fyI" id="Fok-Wv-bgx"/>
                         <outlet property="cityTF" destination="oK0-IS-32v" id="J76-4w-Vte"/>
                         <outlet property="countryTF" destination="Dd5-ee-rjn" id="QXX-ZP-E4H"/>
                         <outlet property="firstNameTF" destination="X68-qH-MdS" id="jZQ-jh-A4Z"/>
@@ -537,7 +550,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="nq5-kR-s0W"/>
+        <segue reference="YeO-iJ-c8p"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="homekit" catalog="system" width="128" height="104"/>

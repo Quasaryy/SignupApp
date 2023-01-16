@@ -29,6 +29,15 @@ class LoginViewController: UIViewController {
         let tabbarVC = segue.destination as? UITabBarController
         let dashboardVC = tabbarVC?.viewControllers?.first as? DashboardViewController
         dashboardVC?.user = usernameTF.text
+        
+        let detailsVC = tabbarVC?.viewControllers![1] as? DetailsViewController
+        guard let user = usersArray[usernameTF.text!] else { return }
+        detailsVC?.username = usernameTF.text
+        detailsVC?.firstName = user.fName
+        detailsVC?.lastName = user.lName
+        detailsVC?.phone = user.phone
+        detailsVC?.city = user.city
+        detailsVC?.country = user.country
     }
 
     @IBAction func loginTapped() {
@@ -84,7 +93,7 @@ extension LoginViewController {
     }
 }
 
-// MARK: Checking login and password to login
+// MARK: Checking username and password to login
 extension LoginViewController {
     func checkLoginAndPassword() -> Bool {
         if let user = usersArray[usernameTF.text!] {

@@ -16,6 +16,8 @@
 		D26D567929720AF300D12AF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D26D567729720AF300D12AF4 /* LaunchScreen.storyboard */; };
 		D26D56A22972BBE800D12AF4 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26D56A12972BBE800D12AF4 /* SignupViewController.swift */; };
 		D26D56A42972D87E00D12AF4 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26D56A32972D87E00D12AF4 /* DashboardViewController.swift */; };
+		D2E054562973609B001C7D92 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E054552973609B001C7D92 /* DetailsViewController.swift */; };
+		D2EA4B27297599D7005B1CD3 /* EditDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA4B26297599D7005B1CD3 /* EditDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		D26D567A29720AF300D12AF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D26D56A12972BBE800D12AF4 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		D26D56A32972D87E00D12AF4 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		D2E054552973609B001C7D92 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		D2EA4B26297599D7005B1CD3 /* EditDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +84,8 @@
 				D26D567029720AF300D12AF4 /* LoginViewController.swift */,
 				D26D56A12972BBE800D12AF4 /* SignupViewController.swift */,
 				D26D56A32972D87E00D12AF4 /* DashboardViewController.swift */,
+				D2E054552973609B001C7D92 /* DetailsViewController.swift */,
+				D2EA4B26297599D7005B1CD3 /* EditDetailsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -159,6 +165,8 @@
 				D26D566D29720AF300D12AF4 /* AppDelegate.swift in Sources */,
 				D26D56A42972D87E00D12AF4 /* DashboardViewController.swift in Sources */,
 				D26D56A22972BBE800D12AF4 /* SignupViewController.swift in Sources */,
+				D2E054562973609B001C7D92 /* DetailsViewController.swift in Sources */,
+				D2EA4B27297599D7005B1CD3 /* EditDetailsViewController.swift in Sources */,
 				D2367A3229730DDD0089E687 /* Users.swift in Sources */,
 				D26D566F29720AF300D12AF4 /* SceneDelegate.swift in Sources */,
 			);
@@ -307,6 +315,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BPFBUHPQ39;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SignupApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -338,6 +347,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BPFBUHPQ39;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SignupApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

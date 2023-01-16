@@ -19,7 +19,12 @@ class DashboardViewController: UIViewController {
 
         addGradient()
         logoutButton.setTitleColor(.white, for: .normal)
-        welcomeUserLabel.text! += user + "!"
+        
+        if usersArray[user]?.fName == "Not specified" {
+            welcomeUserLabel.text! += user + "!"
+        } else {
+            welcomeUserLabel.text! += usersArray[user]!.fName + "!"
+        }
     }
 
 }

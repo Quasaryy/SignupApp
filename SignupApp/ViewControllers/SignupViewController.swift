@@ -26,9 +26,18 @@ class SignupViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let tabBarVC = segue.destination as? UITabBarController
-        let dashboardVC = tabBarVC?.viewControllers?.first as? DashboardViewController
+        let tabbarVC = segue.destination as? UITabBarController
+        let dashboardVC = tabbarVC?.viewControllers?.first as? DashboardViewController
         dashboardVC?.user = usernameTF.text
+        
+        let detailsVC = tabbarVC?.viewControllers![1] as? DetailsViewController
+        guard let user = usersArray[usernameTF.text!] else { return }
+        detailsVC?.username = usernameTF.text
+        detailsVC?.firstName = user.fName
+        detailsVC?.lastName = user.lName
+        detailsVC?.phone = user.phone
+        detailsVC?.city = user.city
+        detailsVC?.country = user.country
     }
     
     @IBAction func signupTapped() {

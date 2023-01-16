@@ -7,11 +7,11 @@
 
 struct Details {
     var password: String!
-    var fName: String!
-    var lName: String!
-    var phone: String!
-    var address: String!
-    var car: String!
+    var fName: String = "Not specified"
+    var lName: String = "Not specified"
+    var phone: String = "Not specified"
+    var city: String = "Not specified"
+    var country: String = "Not specified"
 }
 
-var usersArray: [String: Details] = ["user": Details(password: "password", fName: "John", lName: "Appleseed", phone: "123456789", address: "One Apple Park Way")]
+var usersArray: [String: Details] = ["user": Details(password: "password", fName: "John", lName: "Appleseed", phone: "123456789", city: "Los Angeles", country: "USA")]

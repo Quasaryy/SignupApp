@@ -14,4 +14,5 @@ struct Details {
     var country: String = "Not specified"
 }
 
+// Dictionary with users and details
 var usersArray: [String: Details] = ["user": Details(password: "password", fName: "John", lName: "Appleseed", phone: "123456789", city: "Los Angeles", country: "USA")]

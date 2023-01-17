@@ -9,6 +9,7 @@ import UIKit
 
 class DetailsViewController: UIViewController {
     
+    // vars to get data from other VCs
     var firstName: String!
     var lastName: String!
     var phone: String!
@@ -32,20 +33,20 @@ class DetailsViewController: UIViewController {
         cityLabel.text = city
         countryLabel.text = country
         
-//        if usersArray[username]?.fName != "Not specified" && usersArray[username]?.lName != "Not specified" {
-//            userDetails.text = usersArray[username]!.fName + " " + usersArray[username]!.lName
-//        }
-
-       addGradient()
+        // Adding gradient for Details screen
+        addGradient()
     }
     
+    // MARK: Prepare
+    // Sending username to Edit Details VC
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let editDetailsVC = segue.destination as? EditDetailsViewController
         editDetailsVC?.user = username
     }
     
+    // MARK: Unwind
+    // Updating user details at this VC after saving new values on Edit Details VC
     @IBAction func unwindSegueToDetailsVC(segue: UIStoryboardSegue) {
-
         if !firstName.isEmpty { firstNameLabel.text = firstName }
         if !lastName.isEmpty { lastNameLabel.text = lastName }
         if !phone.isEmpty { phoneLabel.text = phone }
@@ -55,6 +56,7 @@ class DetailsViewController: UIViewController {
 
 }
 
+// MARK: Set backgound color
 extension DetailsViewController {
     func addGradient() {
         let gradientLayer = CAGradientLayer()

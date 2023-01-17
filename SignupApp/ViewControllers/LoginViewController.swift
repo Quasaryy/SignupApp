@@ -25,6 +25,8 @@ class LoginViewController: UIViewController {
         passwordTF.textContentType = .oneTimeCode
     }
     
+    // MARK: Prepare
+    // Sending data to other VCs
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let tabbarVC = segue.destination as? UITabBarController
         let dashboardVC = tabbarVC?.viewControllers?.first as? DashboardViewController
@@ -40,27 +42,32 @@ class LoginViewController: UIViewController {
         detailsVC?.country = user.country
     }
 
+    // MARK: Login button
     @IBAction func loginTapped() {
+        // Checking that text fields is not empty
         guard !usernameTF.text!.isEmpty && !passwordTF.text!.isEmpty else {
             showAlert(title: "Oops!", message: "Please enter username and password 😀")
             passwordTF.text = nil
             return
         }
-        
+        // Checking for valid username and password
         guard checkLoginAndPassword() else {
+            // If not - showing alert
             showAlert(title: "Invalid login or password", message: "Please enter correct login and password")
             passwordTF.text = nil
             return
         }
-        
+        // If right - going to the DashboardVC
         performSegue(withIdentifier: "goToDashboardFromLogin", sender: nil)
     }
     
+    // MARK: Signup button
     @IBAction func signupTapped() {
         performSegue(withIdentifier: "goToSignup", sender: nil)
     }
     
-    // MARK: Returning to this VC from previous VC
+    // MARK: Unwind
+    // Returning to this VC from previous VC
     @IBAction func unwindSegueToLoginVC(segue: UIStoryboardSegue) {
         usernameTF.text = nil
         passwordTF.text = nil

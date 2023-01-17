@@ -25,6 +25,8 @@ class SignupViewController: UIViewController {
         passwordTF.textContentType = .oneTimeCode
     }
     
+    // MARK: Prepare
+    // Sending data to other VCs
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let tabbarVC = segue.destination as? UITabBarController
         let dashboardVC = tabbarVC?.viewControllers?.first as? DashboardViewController
@@ -40,17 +42,22 @@ class SignupViewController: UIViewController {
         detailsVC?.country = user.country
     }
     
+    // MARK: Signup button
     @IBAction func signupTapped() {
+        // Checking that text fields is not empty
         guard !usernameTF.text!.isEmpty && !passwordTF.text!.isEmpty else {
             showAlert(title: "Oops!", message: "Please fillout username and password fields 😀")
             passwordTF.text = nil
             return
         }
+        // Checking if username is already existing
         if let _ = usersArray[usernameTF.text!] {
             showAlert(title: "Username is taken", message: "Please enter another username")
             return
         }
+        // Savings new user to usersArray
         usersArray[usernameTF.text!] = Details(password: passwordTF.text)
+        // And going to the DashboardVC
         performSegue(withIdentifier: "goToDashboardFromSignup", sender: nil)
     }
     

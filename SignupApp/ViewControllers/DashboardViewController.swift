@@ -9,6 +9,7 @@ import UIKit
 
 class DashboardViewController: UIViewController {
     
+    // Getting username from previous VC
     var user: String!
     
     @IBOutlet var welcomeUserLabel: UILabel!
@@ -17,9 +18,13 @@ class DashboardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Adding gradient for dashboard screen
         addGradient()
+        
+        // Setting for button text color
         logoutButton.setTitleColor(.white, for: .normal)
         
+        // Checking what to image username or first name
         if usersArray[user]?.fName == "Not specified" {
             welcomeUserLabel.text! += user + "!"
         } else {

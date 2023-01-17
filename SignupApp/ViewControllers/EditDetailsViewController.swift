@@ -9,6 +9,7 @@ import UIKit
 
 class EditDetailsViewController: UIViewController {
     
+    // var to get username from Details VC
     var user: String!
     
     @IBOutlet var countryTF: UITextField!
@@ -22,8 +23,10 @@ class EditDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Adding gradient to Edit Details screen
         addGradient()
         
+        // MARK: Settings for text fields and buttons
         countryTF.clearButtonMode = .whileEditing
         countryTF.placeholder = "\(usersArray[user]?.country ?? "Your country")"
         countryTF.backgroundColor = .systemMint
@@ -40,13 +43,13 @@ class EditDetailsViewController: UIViewController {
         firstNameTF.placeholder = "\(usersArray[user]?.fName ?? "Your name")"
         firstNameTF.backgroundColor = .systemMint
         
+        // Setting buttons text color
         cancelButton.setTitleColor(.white, for: .normal)
-        
         saveButton.setTitleColor(.white, for: .normal)
-        
-        view.backgroundColor = .systemTeal
     }
     
+    // MARK: Prepare
+    // Sending new values to Details VC
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let detailsVC = segue.destination as? DetailsViewController
         detailsVC?.firstName = firstNameTF.text
@@ -56,6 +59,8 @@ class EditDetailsViewController: UIViewController {
         detailsVC?.country = countryTF.text
     }
 
+    // MARK: Save button
+    // Saving to usersArray new values
     @IBAction func saveTapped() {
         if !firstNameTF.text!.isEmpty { usersArray[user]?.fName = firstNameTF.text! }
         if !lastNameTF.text!.isEmpty { usersArray[user]?.lName = lastNameTF.text! }
@@ -65,6 +70,7 @@ class EditDetailsViewController: UIViewController {
     }
 }
 
+// MARK: Set backgound color
 extension EditDetailsViewController {
     func addGradient() {
         let gradientLayer = CAGradientLayer()

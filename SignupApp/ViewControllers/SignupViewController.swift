@@ -9,13 +9,15 @@ import UIKit
 
 class SignupViewController: UIViewController {
     
+    // MARK: IBOutlets
     @IBOutlet var usernameTF: UITextField!
     @IBOutlet var passwordTF: UITextField!
     
+    // MARK: Override Methods
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // MARK: Text fields setiings
+        // Text fields setiings
         usernameTF.clearButtonMode = .whileEditing
         usernameTF.placeholder = "Create username"
         usernameTF.autocorrectionType = .no
@@ -25,7 +27,6 @@ class SignupViewController: UIViewController {
         passwordTF.textContentType = .oneTimeCode
     }
     
-    // MARK: Prepare
     // Sending data to other VCs
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let tabbarVC = segue.destination as? UITabBarController
@@ -42,7 +43,8 @@ class SignupViewController: UIViewController {
         detailsVC?.country = user.country
     }
     
-    // MARK: Signup button
+    // MARK: IBActions
+    // Signup button
     @IBAction func signupTapped() {
         // Checking that text fields is not empty
         guard !usernameTF.text!.isEmpty && !passwordTF.text!.isEmpty else {
@@ -63,7 +65,8 @@ class SignupViewController: UIViewController {
     
 }
 
-// MARK: Settings for keyboard
+// MARK: Public Methods
+// Settings for keyboard
 extension SignupViewController: UITextFieldDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
@@ -79,7 +82,7 @@ extension SignupViewController: UITextFieldDelegate {
     }
 }
 
-// MARK: Alert window
+// Alert window
 extension SignupViewController {
     func showAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)

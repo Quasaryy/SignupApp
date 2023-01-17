@@ -8,14 +8,16 @@
 import UIKit
 
 class LoginViewController: UIViewController {
-
+    
+    // MARK: IBOutlets
     @IBOutlet var passwordTF: UITextField!
     @IBOutlet var usernameTF: UITextField!
     
+    // MARK: Override Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // MARK: Settings for textfields
+        // settings for textfields
         usernameTF.clearButtonMode = .whileEditing
         usernameTF.placeholder = "Enter username"
         usernameTF.autocorrectionType = .no
@@ -25,7 +27,6 @@ class LoginViewController: UIViewController {
         passwordTF.textContentType = .oneTimeCode
     }
     
-    // MARK: Prepare
     // Sending data to other VCs
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let tabbarVC = segue.destination as? UITabBarController
@@ -42,7 +43,8 @@ class LoginViewController: UIViewController {
         detailsVC?.country = user.country
     }
 
-    // MARK: Login button
+    // MARK: IBActions
+    // Login button
     @IBAction func loginTapped() {
         // Checking that text fields is not empty
         guard !usernameTF.text!.isEmpty && !passwordTF.text!.isEmpty else {
@@ -61,12 +63,11 @@ class LoginViewController: UIViewController {
         performSegue(withIdentifier: "goToDashboardFromLogin", sender: nil)
     }
     
-    // MARK: Signup button
+    // Signup button
     @IBAction func signupTapped() {
         performSegue(withIdentifier: "goToSignup", sender: nil)
     }
     
-    // MARK: Unwind
     // Returning to this VC from previous VC
     @IBAction func unwindSegueToLoginVC(segue: UIStoryboardSegue) {
         usernameTF.text = nil
@@ -74,7 +75,8 @@ class LoginViewController: UIViewController {
     }
 }
 
-// MARK: Settings for keyboard
+// MARK: Public Methods
+// Settings for keyboard
 extension LoginViewController: UITextFieldDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
@@ -90,7 +92,7 @@ extension LoginViewController: UITextFieldDelegate {
     }
 }
 
-// MARK: Alert window
+// Alert window
 extension LoginViewController {
     func showAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -100,7 +102,7 @@ extension LoginViewController {
     }
 }
 
-// MARK: Checking username and password to login
+// Checking username and password to login
 extension LoginViewController {
     func checkLoginAndPassword() -> Bool {
         if let user = usersArray[usernameTF.text!] {

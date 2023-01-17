@@ -8,15 +8,8 @@
 import UIKit
 
 class DetailsViewController: UIViewController {
-    
-    // vars to get data from other VCs
-    var firstName: String!
-    var lastName: String!
-    var phone: String!
-    var city: String!
-    var country: String!
-    var username: String!
 
+    // MARK: IBOutlets
     @IBOutlet var userDetails: UILabel!
     @IBOutlet var firstNameLabel: UILabel!
     @IBOutlet var lastNameLabel: UILabel!
@@ -24,6 +17,16 @@ class DetailsViewController: UIViewController {
     @IBOutlet var phoneLabel: UILabel!
     @IBOutlet var countryLabel: UILabel!
     
+    // MARK: Public Propertis
+    // vars to get data from other VCs
+    var firstName: String!
+    var lastName: String!
+    var phone: String!
+    var city: String!
+    var country: String!
+    var username: String!
+    
+    // MARK: Override Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,14 +40,13 @@ class DetailsViewController: UIViewController {
         addGradient()
     }
     
-    // MARK: Prepare
     // Sending username to Edit Details VC
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let editDetailsVC = segue.destination as? EditDetailsViewController
         editDetailsVC?.user = username
     }
     
-    // MARK: Unwind
+    // MARK: IBActions
     // Updating user details at this VC after saving new values on Edit Details VC
     @IBAction func unwindSegueToDetailsVC(segue: UIStoryboardSegue) {
         if !firstName.isEmpty { firstNameLabel.text = firstName }
@@ -56,7 +58,8 @@ class DetailsViewController: UIViewController {
 
 }
 
-// MARK: Set backgound color
+// MARK: Public Methods
+// Set backgound color
 extension DetailsViewController {
     func addGradient() {
         let gradientLayer = CAGradientLayer()

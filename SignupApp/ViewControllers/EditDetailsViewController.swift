@@ -9,9 +9,7 @@ import UIKit
 
 class EditDetailsViewController: UIViewController {
     
-    // var to get username from Details VC
-    var user: String!
-    
+    // MARK: IBOutlets
     @IBOutlet var countryTF: UITextField!
     @IBOutlet var cityTF: UITextField!
     @IBOutlet var phoneTF: UITextField!
@@ -20,13 +18,18 @@ class EditDetailsViewController: UIViewController {
     @IBOutlet var saveButton: UIButton!
     @IBOutlet var cancelButton: UIButton!
     
+    // MARK: Public Properties
+    // var to get username from DetailsVC
+    var user: String!
+    
+    // MARK: Override Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Adding gradient to Edit Details screen
+        // Adding gradient to current screen
         addGradient()
         
-        // MARK: Settings for text fields and buttons
+        // Settings for text fields and buttons
         countryTF.clearButtonMode = .whileEditing
         countryTF.placeholder = "\(usersArray[user]?.country ?? "Your country")"
         countryTF.backgroundColor = .systemMint
@@ -48,7 +51,6 @@ class EditDetailsViewController: UIViewController {
         saveButton.setTitleColor(.white, for: .normal)
     }
     
-    // MARK: Prepare
     // Sending new values to Details VC
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let detailsVC = segue.destination as? DetailsViewController
@@ -59,7 +61,7 @@ class EditDetailsViewController: UIViewController {
         detailsVC?.country = countryTF.text
     }
 
-    // MARK: Save button
+    // MARK: IBActions
     // Saving to usersArray new values
     @IBAction func saveTapped() {
         if !firstNameTF.text!.isEmpty { usersArray[user]?.fName = firstNameTF.text! }
@@ -70,7 +72,8 @@ class EditDetailsViewController: UIViewController {
     }
 }
 
-// MARK: Set backgound color
+// MARK: Public Methods
+// Set backgound color
 extension EditDetailsViewController {
     func addGradient() {
         let gradientLayer = CAGradientLayer()

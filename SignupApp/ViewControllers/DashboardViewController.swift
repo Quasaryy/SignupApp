@@ -8,13 +8,16 @@
 import UIKit
 
 class DashboardViewController: UIViewController {
-    
-    // Getting username from previous VC
-    var user: String!
-    
+
+    // MARK: IBOutlets
     @IBOutlet var welcomeUserLabel: UILabel!
     @IBOutlet var logoutButton: UIButton!
     
+    // MARK: Public Properties
+    // Getting username from previous VC
+    var user: String!
+    
+    // MARK: Override Methods
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,7 +37,8 @@ class DashboardViewController: UIViewController {
 
 }
 
-// MARK: Set backgound color
+// MARK: Public Methods
+// Setting backgound color
 extension DashboardViewController {
     func addGradient() {
         let gradientlayer = CAGradientLayer()

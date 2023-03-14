@@ -33,8 +33,9 @@ class LoginViewController: UIViewController {
         let dashboardVC = tabbarVC?.viewControllers?.first as? DashboardViewController
         dashboardVC?.user = usernameTF.text
         
-        let detailsVC = tabbarVC?.viewControllers![1] as? DetailsViewController
-        guard let user = usersArray[usernameTF.text!] else { return }
+        let detailsVC = tabbarVC?.viewControllers?[1] as? DetailsViewController
+        guard let usernameText = usernameTF.text else { return }
+        guard let user = usersArray[usernameText] else { return }
         detailsVC?.username = usernameTF.text
         detailsVC?.firstName = user.fName
         detailsVC?.lastName = user.lName
@@ -47,7 +48,8 @@ class LoginViewController: UIViewController {
     // Login button
     @IBAction func loginTapped() {
         // Checking that text fields is not empty
-        guard !usernameTF.text!.isEmpty && !passwordTF.text!.isEmpty else {
+        guard let usernameText = usernameTF.text, let passwordText = passwordTF.text else { return }
+        guard !usernameText.isEmpty && !passwordText.isEmpty else {
             showAlert(title: "Oops!", message: "Please enter username and password 😀")
             passwordTF.text = nil
             return
@@ -105,7 +107,8 @@ extension LoginViewController {
 // Checking username and password to login
 extension LoginViewController {
     func checkLoginAndPassword() -> Bool {
-        if let user = usersArray[usernameTF.text!] {
+        guard let usernameText = usernameTF.text else { return false }
+        if let user = usersArray[usernameText] {
             if user.password == passwordTF.text {
                 return true
             }

@@ -64,11 +64,12 @@ class EditDetailsViewController: UIViewController {
     // MARK: IBActions
     // Saving to usersArray new values
     @IBAction func saveTapped() {
-        if !firstNameTF.text!.isEmpty { usersArray[user]?.fName = firstNameTF.text! }
-        if !lastNameTF.text!.isEmpty { usersArray[user]?.lName = lastNameTF.text! }
-        if !phoneTF.text!.isEmpty { usersArray[user]?.phone = phoneTF.text! }
-        if !cityTF.text!.isEmpty { usersArray[user]?.city = cityTF.text! }
-        if !countryTF.text!.isEmpty { usersArray[user]?.country = countryTF.text! }
+        guard let firstnameText = firstNameTF.text, let lastnameText = lastNameTF.text, let phoneText = phoneTF.text, let cityText = cityTF.text, let countryText = countryTF.text else { return }
+        if !firstnameText.isEmpty { usersArray[user]?.fName = firstnameText }
+        if !lastnameText.isEmpty { usersArray[user]?.lName = lastnameText }
+        if !phoneText.isEmpty { usersArray[user]?.phone = phoneText }
+        if !cityText.isEmpty { usersArray[user]?.city = cityText }
+        if !countryText.isEmpty { usersArray[user]?.country = countryText }
     }
 }
 

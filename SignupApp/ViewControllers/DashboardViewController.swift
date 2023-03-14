@@ -29,9 +29,10 @@ class DashboardViewController: UIViewController {
         
         // Checking what to image username or first name
         if usersArray[user]?.fName == "Not specified" {
-            welcomeUserLabel.text! += user + "!"
+            welcomeUserLabel.text? += user + "!"
         } else {
-            welcomeUserLabel.text! += usersArray[user]!.fName + "!"
+            guard let user = usersArray[user] else { return }
+            welcomeUserLabel.text? += user.fName + "!"
         }
     }
 

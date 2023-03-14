@@ -33,8 +33,9 @@ class SignupViewController: UIViewController {
         let dashboardVC = tabbarVC?.viewControllers?.first as? DashboardViewController
         dashboardVC?.user = usernameTF.text
         
-        let detailsVC = tabbarVC?.viewControllers![1] as? DetailsViewController
-        guard let user = usersArray[usernameTF.text!] else { return }
+        let detailsVC = tabbarVC?.viewControllers?[1] as? DetailsViewController
+        guard let usernameText = usernameTF.text else { return }
+        guard let user = usersArray[usernameText] else { return }
         detailsVC?.username = usernameTF.text
         detailsVC?.firstName = user.fName
         detailsVC?.lastName = user.lName
@@ -47,18 +48,19 @@ class SignupViewController: UIViewController {
     // Signup button
     @IBAction func signupTapped() {
         // Checking that text fields is not empty
-        guard !usernameTF.text!.isEmpty && !passwordTF.text!.isEmpty else {
+        guard let usernameText = usernameTF.text, let passwordText = passwordTF.text else { return }
+        guard !usernameText.isEmpty && !passwordText.isEmpty else {
             showAlert(title: "Oops!", message: "Please fillout username and password fields 😀")
             passwordTF.text = nil
             return
         }
         // Checking if username is already existing
-        if let _ = usersArray[usernameTF.text!] {
+        if let _ = usersArray[usernameText] {
             showAlert(title: "Username is taken", message: "Please enter another username")
             return
         }
         // Savings new user to usersArray
-        usersArray[usernameTF.text!] = Details(password: passwordTF.text)
+        usersArray[usernameText] = Details(password: passwordTF.text)
         // And going to the DashboardVC
         performSegue(withIdentifier: "goToDashboardFromSignup", sender: nil)
     }
